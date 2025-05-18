@@ -1,0 +1,17 @@
+# Dockerfile.backend
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy source
+COPY backend/ .
+
+# Expose Flask port
+EXPOSE 5050
+
+# Default to flask run (override in compose for worker)
+CMD ["flask", "run", "--host=0.0.0.0"]
