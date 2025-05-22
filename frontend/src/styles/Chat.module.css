@@ -3,17 +3,15 @@ body {
 }
 
 .chatContainer {
-  position: relative;
   width: 100vw;
-  height: 100vh;
+  height: var(--doc-height);
   max-width: 100vw;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  background-color: #fff;   /* 여기만 #fff 또는 white로! */
+  background-color: #fff;
   overflow: hidden;
 }
-
 
 .chatContentWrapper {
   flex: 1 1 auto;
@@ -26,14 +24,18 @@ body {
 .chatArea {
   flex: 1 1 auto;
   padding: 16px;
-  overflow-y: auto;
+  overflow-y: auto; /* chatArea만 스크롤 허용 */
+  overscroll-behavior: contain; /* 스크롤 체인 방지 */
+  -webkit-overflow-scrolling: touch;
 }
+
 .topFade {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 40px; /* 흐릿한 범위 조절 가능 */
+  height: 50px; /* 흐릿한 범위 조절 가능 */
+  margin-top: 10px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   pointer-events: none; /* 클릭 이벤트 차단 안 되도록 */
   z-index: 2;

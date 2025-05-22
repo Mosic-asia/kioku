@@ -16,6 +16,12 @@ import EmergencyContactEdit from "./routes/EmergencyContactEdit";
 import UserInfo from "./routes/UserInfo";
 import UserInfoEdit from "./routes/UserInfoEdit";
 
+// App 시작 시와 리사이즈마다 실제 뷰포트 높이로 CSS 변수 설정
+function setDocHeight() {
+  document.documentElement.style.setProperty('--doc-height', `${window.innerHeight}px`);
+}
+window.addEventListener('resize', setDocHeight);
+setDocHeight();
 
 
 function App() {

@@ -1,4 +1,12 @@
 /* styles/ChatBubble.module.css */
+:root {
+  --container-max-width: 340px;
+  --menu-item-radius: 16px;
+  --orange: #ff9147;
+  --orange-hover: #e6803e;
+  --main-bg: #fff;
+}
+
 * {
   font-size: 1rem;
 }
@@ -32,7 +40,7 @@
 }
 
 .otherBubble {
-  background-color: #ff964a;
+  background-color: var(--orange);
   color: #1f2937;
   border-radius: 1.5rem;
 
