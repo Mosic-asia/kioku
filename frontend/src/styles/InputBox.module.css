@@ -1,0 +1,86 @@
+/* styles/InputBox.module.css */
+.inputBox {
+  width: 100%;          /* 100vw → 100%로 변경 */
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background-color: #EFEFEF;
+  border-radius: 1rem;
+  margin: 0.5rem 0;
+}
+
+.iconButton {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-right: 0.8rem; /* 마이크 아이콘 오른쪽 간격 증가 */
+  cursor: pointer;
+  display: flex; /* 아이콘 중앙 정렬 */
+  align-items: center;
+  justify-content: center;
+  width: 36px; /* 명시적인 너비 */
+  height: 36px; /* 명시적인 높이 */
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: #757575;
+}
+
+.addImageButton {
+  background-color: #EFEFEF;
+  border: none;
+  padding: 0;
+  margin-right: 0.8rem; /* 이미지 추가 아이콘 오른쪽 간격 증가 */
+  cursor: pointer;
+  display: flex; /* 아이콘 중앙 정렬 */
+  align-items: center;
+  justify-content: center;
+  width: 36px; /* 명시적인 너비 */
+  height: 36px; /* 명시적인 높이 */
+  border-radius: 0.5rem;
+}
+
+.addImageIcon {
+  width: 20px;
+  height: 20px;
+  color: #757575;
+}
+
+.inputField {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  padding: 0.7rem 0;
+  background-color: #EFEFEF;
+  height: 100%;
+  overflow-x: hidden;
+
+  /* ✨ 고정 너비 제거 */
+  width: auto;      /* 또는 아예 이 줄 삭제 */
+  min-width: 0;     /* ✅ flex 안에서 넘치지 않게 반드시 넣기 */
+}
+
+.sendButton {
+  background-color: #EFEFEF;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 0.8rem; /* 보내기 버튼 왼쪽 간격 증가 */
+}
+
+.sendIcon {
+  width: 20px;
+  height: 20px;
+  color: #757575;
+}

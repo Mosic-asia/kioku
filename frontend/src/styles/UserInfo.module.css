@@ -1,0 +1,153 @@
+.container {
+  width: 100vw;
+  min-height: 100dvh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Noto Sans', 'Apple SD Gothic Neo', sans-serif;
+}
+
+.header {
+  width: 100vw;
+  max-width: 430px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 0 24px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #222;
+  background: #fff;
+}
+
+.menu {
+  font-weight: 400;
+  color: #888;
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+  width: 100%;
+}
+
+.profileImage {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eee;
+  margin-bottom: 18px;
+}
+
+.infoMain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.birth {
+  color: #888;
+  font-size: 17px;
+}
+
+.infoList {
+  width: 90vw;
+  max-width: 340px;
+  margin: 0 auto 16px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoList > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #222;
+}
+
+.label {
+  font-weight: 500;
+  color: #888;
+  min-width: 70px;
+}
+
+.editButton, .saveButton {
+  width: 90vw;
+  max-width: 340px;
+  height: 48px;
+  border-radius: 14px;
+  border: none;
+  background: #ffa500;
+  color: #fff;
+  font-size: 1.13rem;
+  font-weight: 600;
+  margin: 32px auto 0 auto;
+  cursor: pointer;
+  transition: background 0.18s;
+  letter-spacing: 0.01em;
+  display: block;
+}
+
+.infoEditList {
+  width: 90vw;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.input {
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  background: #f8f8f8;
+  font-size: 1rem;
+  padding: 0 14px;
+  color: #222;
+  outline: none;
+  margin-bottom: 0;
+  transition: background 0.2s;
+}
+
+.input:focus {
+  background: #e7e7e7;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 7px;
+  text-align: center;
+}
+
+.success {
+  color: #1a7f37;
+  font-size: 14px;
+  margin-top: 7px;
+  text-align: center;
+}
+
+.loading {
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 18px;
+}

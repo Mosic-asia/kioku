@@ -1,0 +1,19 @@
+/* src/styles/ErrorBanner.module.css */
+.errorBanner {
+  background-color: #ffcccc;
+  color: #900;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.errorBanner button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}

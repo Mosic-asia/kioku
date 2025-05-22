@@ -1,0 +1,12 @@
+.journal-list-page {
+    background-color: #ffffff;
+    min-height: 100vh;
+    padding: 16px;
+    width: 100%;
+}
+
+.diary-list-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

@@ -1,0 +1,56 @@
+.voiceBar {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  padding: 10px 16px;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+.bar {
+  width: 6px;
+  height: 10px;
+  border-radius: 3px;
+  animation: pulse 1.2s infinite;
+  transform-origin: bottom;
+  will-change: transform;
+}
+
+.bar1 {
+  background-color: #B9CEBD;
+  animation-delay: 0s;
+}
+
+.bar2 {
+  background-color: #B0A7C7;
+  animation-delay: 0.2s;
+}
+
+.bar3 {
+  background-color: #FEBFAC;
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(0.9);
+  }
+  40% {
+    transform: scaleY(0.6);
+  }
+  60% {
+    transform: scaleY(1.0);
+  }
+  80% {
+    transform: scaleY(0.7);
+  }
+  100% {
+    transform: scaleY(0.5);
+  }
+}

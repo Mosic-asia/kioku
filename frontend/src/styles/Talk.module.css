@@ -1,0 +1,89 @@
+body {
+  background-color: white;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.chatContainer {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f5f7;
+  overflow: hidden;
+}
+
+.chatContentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+}
+
+.chatArea {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.cloudAvatarContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.cloudAvatarWrapper {
+  position: relative;
+}
+
+.cloudAvatar {
+  width: 14rem;
+  height: 14rem;
+}
+
+.userIconPlaceholder {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.inputBoxContainer {
+  width: 100%;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.hiddenChatArea {
+  display: none;
+}
+
+.expandedAvatar {
+  width: 20rem !important; /* 더 큰 아바타 크기 */
+  height: 20rem !important;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* 부드러운 애니메이션 */
+}
+
+.voiceBar {
+  position: fixed;
+  bottom: 60px; /* 인풋 박스 위에 위치 */
+  left: 0;
+  right: 0;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  text-align: center;
+  z-index: 15; /* 인풋 박스 위에 표시 */
+}
