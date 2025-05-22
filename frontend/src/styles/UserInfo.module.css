@@ -1,28 +1,39 @@
+:root {
+  --main-bg: #fff;
+  --orange: #ffa500;
+  --orange-hover: #ff9500;
+  --gray-label: #888;
+  --gray-bg: #f6f6f6;
+  --profile-size: 100px;
+  --container-max-width: 340px;
+  --font-main: 'Noto Sans', 'Apple SD Gothic Neo', sans-serif;
+}
+
 .container {
   width: 100vw;
   min-height: 100dvh;
-  background: #fff;
+  background: var(--main-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Noto Sans', 'Apple SD Gothic Neo', sans-serif;
+  font-family: var(--font-main);
 }
 
 .header {
   width: 100vw;
-  max-width: 430px;
+  max-width: var(--container-max-width);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 24px 0 24px;
-  font-size: 18px;
-  font-weight: 500;
+  padding: 26px 20px 0 20px;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #222;
-  background: #fff;
+  background: var(--main-bg);
 }
 
 .menu {
-  font-weight: 400;
+  font-weight: 600;
   color: #888;
 }
 
@@ -35,119 +46,121 @@
 }
 
 .profileImage {
-  width: 110px;
-  height: 110px;
+  width: var(--profile-size);
+  height: var(--profile-size);
   border-radius: 50%;
+  background: #e2e2e2;
+  margin-bottom: 12px;
   object-fit: cover;
-  background: #eee;
-  margin-bottom: 18px;
+  display: block;
 }
 
 .infoMain {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 12px;
+  gap: 18px;
+  margin-bottom: 22px;
+  justify-content: center;
 }
 
 .name {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 1.5rem;      /* 24px */
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0.02em;
 }
 
 .birth {
   color: #888;
-  font-size: 17px;
+  font-size: 1.25rem;     /* 20px */
+  font-weight: 600;
 }
 
 .infoList {
-  width: 90vw;
-  max-width: 340px;
-  margin: 0 auto 16px auto;
+  width: 95vw;
+  max-width: var(--container-max-width);
+  margin: 0 auto 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
 }
 
-.infoList > div {
+.infoRow {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  font-size: 16px;
+  align-items: center;
+  font-size: 1.18rem;      /* 19px */
   color: #222;
+  background: none;
+  padding: 0;
+  min-height: 32px;
+  border-bottom: 1px solid #eee;
+}
+
+.infoIcon {
+  width: 28px;
+  text-align: center;
+  margin-right: 12px;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  color: var(--orange);
 }
 
 .label {
-  font-weight: 500;
-  color: #888;
-  min-width: 70px;
+  min-width: 90px;
+  font-weight: 600;
+  color: var(--gray-label);
+  margin-right: 10px;
+  font-size: 1.13rem;
+  letter-spacing: 0.01em;
 }
 
-.editButton, .saveButton {
-  width: 90vw;
-  max-width: 340px;
-  height: 48px;
-  border-radius: 14px;
+.value {
+  font-weight: 700;
+  color: #222;
+  flex: 1;
+  text-align: right;
+  font-size: 1.18rem;
+}
+
+.editButton {
+  width: 95vw;
+  max-width: var(--container-max-width);
+  height: 54px;
+  border-radius: 16px;
   border: none;
-  background: #ffa500;
+  background: var(--orange);
   color: #fff;
-  font-size: 1.13rem;
-  font-weight: 600;
-  margin: 32px auto 0 auto;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 48px auto 0 auto;
   cursor: pointer;
   transition: background 0.18s;
   letter-spacing: 0.01em;
   display: block;
+  box-shadow: 0 2px 8px rgba(255,165,0,0.09);
 }
 
-.infoEditList {
-  width: 90vw;
-  max-width: 340px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 16px;
+.editButton:active,
+.editButton:hover {
+  background: var(--orange-hover);
 }
 
-.input {
-  width: 100%;
-  height: 42px;
-  border-radius: 10px;
-  border: 1px solid #eee;
-  background: #f8f8f8;
-  font-size: 1rem;
-  padding: 0 14px;
-  color: #222;
-  outline: none;
-  margin-bottom: 0;
-  transition: background 0.2s;
-}
-
-.input:focus {
-  background: #e7e7e7;
-}
-
-.error {
-  color: #e74c3c;
-  font-size: 14px;
-  margin-top: 7px;
-  text-align: center;
-}
-
-.success {
-  color: #1a7f37;
-  font-size: 14px;
-  margin-top: 7px;
-  text-align: center;
-}
-
-.loading {
-  width: 100vw;
-  height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 18px;
+@media (max-width: 400px) {
+  .container, .header, .infoList, .editButton {
+    max-width: 100vw;
+  }
+  .profileImage {
+    width: 70px;
+    height: 70px;
+  }
+  .editButton {
+    font-size: 1.1rem;
+    height: 44px;
+    border-radius: 12px;
+  }
+  .infoRow, .value, .label {
+    font-size: 1.05rem;
+  }
 }

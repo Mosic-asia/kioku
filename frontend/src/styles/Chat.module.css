@@ -59,13 +59,13 @@ body {
   }
   
 
-.expandedAvatar {
-
-  width: 14rem !important;
-  height: 14rem !important;
-  margin-bottom: 0;
-  transition: none;
-}
+  .expandedAvatar {
+    width: 18rem !important; /* 더 큰 아바타 크기 */
+    height: 18rem !important;
+    margin-bottom: 60px;
+    transition: none;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* 부드러운 애니메이션 */
+  }
 
 
 .userIconPlaceholder {
@@ -97,10 +97,3 @@ body {
 .hiddenChatArea {
   display: none;
 }
-
-.expandedAvatar {
-  width: 20rem !important; /* 더 큰 아바타 크기 */
-  height: 20rem !important;
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* 부드러운 애니메이션 */
-}
-
