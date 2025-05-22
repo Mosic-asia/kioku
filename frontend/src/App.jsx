@@ -4,7 +4,6 @@ import Login from "./routes/Login";
 import Register from "./routes/SignUp";
 import Chat from "./routes/Chat";
 import Menu from "./routes/Menu";
-import MyInfo from "./routes/MyInfo";
 import Reminder from "./routes/Reminder";
 import JournalList from "./routes/JournalList";
 import JournalDetail from "./routes/JournalDetail";
