@@ -15,7 +15,8 @@
 }
 
 .title {
-  font-size: 1.5rem;      /* 약 21px, 크고 또렷하게 */
+  margin: 15px 15px;
+  font-size: 1.5rem;   
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #222;
@@ -31,7 +32,7 @@
   background: none;
   border: none;
   padding: 0;
-  margin-left: 12px;
+  margin: 15px 15px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -60,7 +61,7 @@
     padding: 0 10px;
   }
   .title {
-    font-size: 1.08rem;
+    font-size: 1.5rem;
   }
   .homeIcon {
     width: 23px;
