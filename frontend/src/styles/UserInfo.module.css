@@ -50,7 +50,7 @@
   height: var(--profile-size);
   border-radius: 50%;
   background: #e2e2e2;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   object-fit: cover;
   display: block;
 }
@@ -65,7 +65,8 @@
 }
 
 .name {
-  font-size: 1.5rem;      /* 24px */
+  font-size: 1.5rem;
+  /* 24px */
   font-weight: 700;
   color: #222;
   letter-spacing: 0.02em;
@@ -73,7 +74,8 @@
 
 .birth {
   color: #888;
-  font-size: 1.25rem;     /* 20px */
+  font-size: 1.25rem;
+  /* 20px */
   font-weight: 600;
 }
 
@@ -90,7 +92,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 1.18rem;      /* 19px */
+  font-size: 1.18rem;
+  /* 19px */
   color: #222;
   background: none;
   padding: 0;
@@ -139,7 +142,7 @@
   transition: background 0.18s;
   letter-spacing: 0.01em;
   display: block;
-  box-shadow: 0 2px 8px rgba(255,165,0,0.09);
+  box-shadow: 0 2px 8px rgba(255, 165, 0, 0.09);
 }
 
 .editButton:active,
@@ -148,19 +151,28 @@
 }
 
 @media (max-width: 400px) {
-  .container, .header, .infoList, .editButton {
+
+  .container,
+  .header,
+  .infoList,
+  .editButton {
     max-width: 100vw;
   }
+
   .profileImage {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
   }
+
   .editButton {
     font-size: 1.1rem;
     height: 44px;
     border-radius: 12px;
   }
-  .infoRow, .value, .label {
+
+  .infoRow,
+  .value,
+  .label {
     font-size: 1.05rem;
   }
 }
