@@ -2,8 +2,9 @@ from datetime import datetime
 from llm import call_llm
 import json
 import logging
-logging.basicConfig(level=logging.INFO)
+from reminder_assistant import add_reminder
 
+logging.basicConfig(level=logging.INFO)
 
 
 user_sessions = {}
@@ -78,10 +79,11 @@ def continue_chat(user_id, user_response):
     session = user_sessions[user_id]
     session["chat_history"].append({"role": "user", "message": user_response})
     prompt = (
-        "あなたは高齢の利用者をサポートする、やさしく親身な日本語のAIアシスタントです。\n"
-        "以下は利用者との会話履歴です。これまでの流れを踏まえて、今回の発言に対して丁寧で自然な日本語の一文で返答してください。\n"
-        "返答は共感や励ましを含めつつ、必要に応じてやさしい質問もして構いません。\n"
-        "長くなりすぎず、親しみやすい雰囲気を大切にしてください。\n\n"
+        "あなたは高齢の利用者を支援する、やさしく親切な日本語のAIアシスタントです。\n"
+        "以下の会話履歴と今回の発言を踏まえて、利用者が安心できるような丁寧で自然な一文で返答してください。\n"
+        "返答は短く、わかりやすく、親しみやすい雰囲気を大切にしてください。\n"
+        "共感や励ましを含めても構いませんが、AIであることを忘れず、自分自身を人間のように表現しないでください（例：「私が覚えておきます」「一緒に頑張りましょう」などは使わない）。\n"
+        "質問が自然に出る場合のみ、やさしい質問を1つしても構いません。\n\n"
         "【会話履歴（最新6件）】\n"
     )
 
@@ -92,7 +94,6 @@ def continue_chat(user_id, user_response):
     prompt += f"\n【今回の発言】\n利用者：「{user_response}」\n\n"
 
 
-
     response = call_llm(prompt)
     logging.info(response)
     ai_response = response.get("response", "").strip().split("\n")[0]
@@ -100,11 +101,15 @@ def continue_chat(user_id, user_response):
         if ai_response.startswith(prefix):
             ai_response = ai_response[len(prefix):].strip()
     
-    ai_response = recheck_response_with_llm(ai_response)
+    # ai_response = recheck_response_with_llm(ai_response)
 
     session["chat_history"].append({"role": "ai", "message": ai_response})
 
     reminder = check_for_reminder_llm(user_response)
+
+    if reminder == "yes":
+        add_reminder(user_id, user_response)
+
 
     return {
         "timestamp": datetime.now().isoformat(),
