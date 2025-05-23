@@ -54,6 +54,22 @@ def check_for_reminder_llm(text: str) -> str:
     return "yes" if "yes" in answer else "no"
 
 
+def recheck_response_with_llm(response_text):
+    prompt = (
+    "以下の文を確認して、日本語として不自然な表現や誤字があれば軽く修正してください。\n"
+    "意味や雰囲気は変えず、日本語だけで丁寧な一文にしてください。\n"
+    "英語やローマ字は使わないでください。\n"
+    "修正した文だけを返してください。それ以外は何も返さないでください。\n\n"
+    f"文：{response_text}\n\n"
+    "修正後の文："
+)
+
+    logging.info(prompt)
+    response = call_llm(prompt)
+    logging.info(response)
+    return response.get("response", "").strip().split("\n")[0]
+
+
 def continue_chat(user_id, user_response):
 
     if user_id not in user_sessions:
@@ -62,20 +78,19 @@ def continue_chat(user_id, user_response):
     session = user_sessions[user_id]
     session["chat_history"].append({"role": "user", "message": user_response})
     prompt = (
-    "あなたは認知症の高齢者を支援する、親切で丁寧な日本語のAIチャットボットです。\n"
-    "以下の利用者の発言に対して、やさしく自然な日本語で**一文だけ**返してください。\n"
-    "英語やローマ字、記号、カタカナの外来語を使わず、**完全に日本語のみ**で答えてください。\n"
-    "自分の気持ちや感情表現（嬉しい、助かります など）は書かないでください。\n\n"
-    f"利用者の発言：\n「{user_response}」\n\n"
-    "返答："
+        "あなたは高齢の利用者をサポートする、やさしく親身な日本語のAIアシスタントです。\n"
+        "以下は利用者との会話履歴です。これまでの流れを踏まえて、今回の発言に対して丁寧で自然な日本語の一文で返答してください。\n"
+        "返答は共感や励ましを含めつつ、必要に応じてやさしい質問もして構いません。\n"
+        "長くなりすぎず、親しみやすい雰囲気を大切にしてください。\n\n"
+        "【会話履歴（最新6件）】\n"
     )
 
-
     for turn in session["chat_history"][-6:]:
-        if turn["role"] == "user":
-            prompt += f"- {turn['message']}\n"
+        role_label = "利用者" if turn["role"] == "user" else "アシスタント"
+        prompt += f"{role_label}：{turn['message']}\n"
 
-    prompt += "\n返答："
+    prompt += f"\n【今回の発言】\n利用者：「{user_response}」\n\n"
+
 
 
     response = call_llm(prompt)
@@ -84,6 +99,8 @@ def continue_chat(user_id, user_response):
     for prefix in ("アシスタント：", "アシスタント:", "assistant:", "Assistant:"):
         if ai_response.startswith(prefix):
             ai_response = ai_response[len(prefix):].strip()
+    
+    ai_response = recheck_response_with_llm(ai_response)
 
     session["chat_history"].append({"role": "ai", "message": ai_response})
 

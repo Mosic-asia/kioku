@@ -10,9 +10,11 @@ services:
     environment:
       - FLASK_APP=app.py
       - FLASK_ENV=development
+      - FLASK_DEBUG=1
     ports:
-      - "5050:5050"
+      - "5000:5000"
     depends_on:
+      - ollama
       - redis
     restart: unless-stopped
 
@@ -41,3 +43,19 @@ services:
     ports:
       - "6379:6379"
     restart: unless-stopped
+
+  ollama:
+    build:
+      context: .
+      dockerfile: Dockerfile.ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    
+    runtime: nvidia    #comment-out this if your device doesnot support gpu
+    restart: unless-stopped
+
+volumes:
+  ollama-data:
