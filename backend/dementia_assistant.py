@@ -177,3 +177,25 @@ def summarize_chat(user_id):
         "title": title,
         "summary": summary
     }
+
+def get_chat_history(user_id):
+    """
+    Returns the current chat session history for a user.
+    """
+    if user_id not in user_sessions:
+        return {"error": "No active chat session."}, 400
+
+    return {
+        "user_id": user_id,
+        "chat_history": user_sessions[user_id]["chat_history"]
+    }
+
+
+def end_chat(user_id):
+    """
+    Ends the chat session for the user by clearing chat history.
+    """
+    if user_id in user_sessions:
+        del user_sessions[user_id]
+    return {"message": "Chat session ended."}
+
