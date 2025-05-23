@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "d5219fc5-38a2-483e-85c2-4da07bc4ac08",
+		"name": "DementiaSupport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34811290"
+	},
+	"item": [
+		{
+			"name": "test-llm",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/test-llm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"test-llm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start-chat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/chat/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"chat",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chat-continue",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": 1,\r\n  \"user_response\": \"明日娘と話すことを思い出してください。\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/chat/continue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"chat",
+						"continue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chat-summarize",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/chat/summarize",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"chat",
+						"summarize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chat-end",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/chat/end",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"chat",
+						"end"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chat-history",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get-reminders",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "generate-question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": \"1\",\r\n  \"reminder_msg\": \"明日、娘に電話することを思い出させてください。\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/memory-quiz/generate-question",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"memory-quiz",
+						"generate-question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate-hint",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": \"1\",\r\n  \"reminder_msg\": \"明日、娘に電話することを思い出させてください。\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/memory-quiz/generate-hint",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"memory-quiz",
+						"generate-hint"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "quiz-answer-validation",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
