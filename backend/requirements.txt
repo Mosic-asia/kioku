@@ -4,3 +4,4 @@ psycopg2-binary
 Dramatiq
 redis
 requests
+flask-cors

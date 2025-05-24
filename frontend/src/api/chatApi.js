@@ -1,7 +1,10 @@
 // src/api/chatApi.js
 
+
 export const getInitialChat = async (userId) => {
-  const res = await fetch(`/api/users/${userId}/chat/start`);
+  const res = await fetch(`http://localhost:5000/api/users/${userId}/chat/start`);
+  console.log(res)
+
   if (!res.ok) {
     const errorText = await res.text();
     throw new Error(`챗봇 시작 요청 실패: ${res.status} ${errorText}`);
@@ -10,7 +13,7 @@ export const getInitialChat = async (userId) => {
 };
 
 export const postUserMessage = async (userId, text) => {
-  const res = await fetch(`/api/users/${userId}/chat/continue`, {
+    const res = await fetch(`http://localhost:5000/api/users/${userId}/chat/continue`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ user_id: userId, user_response: text }),
