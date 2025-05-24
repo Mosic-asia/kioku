@@ -26,7 +26,7 @@ export const postUserMessage = async (userId, text) => {
 };
 
 export const endChatSession = async (userId) => {
-  const res = await fetch(`/api/users/${userId}/chat/end`, {
+  const res = await fetch(`http://localhost:5000/api/users/${userId}/chat/end`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ user_id: userId }),

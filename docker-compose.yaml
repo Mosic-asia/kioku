@@ -15,20 +15,20 @@ services:
       - "5000:5000"
     depends_on:
       - ollama
-      - redis
+      # - redis
     restart: unless-stopped
 
-  worker:
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
-    command: dramatiq tasks
-    depends_on:
-      - backend
-      - redis
-    environment:
-      - FLASK_ENV=development
-    restart: unless-stopped
+  # worker:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.backend
+  #   command: dramatiq tasks
+  #   depends_on:
+  #     - backend
+  #     - redis
+  #   environment:
+  #     - FLASK_ENV=development
+  #   restart: unless-stopped
 
   frontend:
     build:
@@ -38,11 +38,11 @@ services:
       - "3000:80"
     restart: unless-stopped
 
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    restart: unless-stopped
+  # redis:
+  #   image: redis:7-alpine
+  #   ports:
+  #     - "6379:6379"
+  #   restart: unless-stopped
 
   ollama:
     build:
