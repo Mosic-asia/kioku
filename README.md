@@ -37,16 +37,6 @@ Reminders: In-memory user reminder store
 
 CORS: Enabled via flask-cors
 
-📂 Project Structure
-pgsql
-Copy
-Edit
-├── app.py                        # Main Flask app with blueprint registration
-├── dementia_assistant.py        # Core chat session handling and summarization
-├── llm.py                       # Wrapper for calling Ollama LLM
-├── reminder_assistant.py        # Reminder CRUD logic
-├── quiz_assistant.py            # Memory quiz and hint generation
-├── requirements.txt             # Required Python packages
 
 🤝 Acknowledgment
 This project was created as a collaborative effort during an AI Hackathon to explore real-world use cases of LLMs in healthcare.
